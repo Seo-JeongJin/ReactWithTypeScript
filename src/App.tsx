@@ -1,12 +1,20 @@
-import Button from './components/Button';
+import { useState } from 'react';
 
 export default function App() {
-  const handler = (message: string) => alert(message);
+  const [name, setName] = useState<string>('jina');
+  const [age, setAge] = useState<number>(24);
+  const [gender, setGender] = useState<string>('male');
+  const handleUpdateProfile = () => {
+    setName('haru');
+    setAge(23);
+    setGender('female');
+  };
   return (
     <>
-      <Button message={'hi'} handler={handler}>
-        click
-      </Button>
+      <h1>name: {name}</h1>
+      <h1>age: {age}</h1>
+      <h1>gender: {gender}</h1>
+      <button onClick={handleUpdateProfile}>Update Profile</button>
     </>
   );
 }
