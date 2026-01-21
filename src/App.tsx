@@ -1,20 +1,23 @@
 import { useState } from 'react';
 
 export default function App() {
-  const [name, setName] = useState<string>('jina');
-  const [age, setAge] = useState<number>(24);
-  const [gender, setGender] = useState<string>('male');
-  const handleUpdateProfile = () => {
-    setName('haru');
-    setAge(23);
-    setGender('female');
+  const [count, setCount] = useState<number>(0);
+  const handleIncrement = () => {
+    setCount(count + 1);
   };
+  const handleDecrement = () => {
+    setCount(count - 1);
+  };
+  const handleReset = () => {
+    setCount(0);
+  };
+
   return (
     <>
-      <h1>name: {name}</h1>
-      <h1>age: {age}</h1>
-      <h1>gender: {gender}</h1>
-      <button onClick={handleUpdateProfile}>Update Profile</button>
+      <h1>Count: {count}</h1>
+      <button onClick={handleIncrement}>Increment</button>
+      <button onClick={handleDecrement}>Decrement</button>
+      <button onClick={handleReset}>Reset</button>
     </>
   );
 }
