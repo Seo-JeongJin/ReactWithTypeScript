@@ -1,23 +1,26 @@
 import { useState } from 'react';
+import CountButton from './components/CountButton';
+import CountDisplay from './components/CountDisplay';
 
 export default function App() {
-  const [count, setCount] = useState<number>(0);
+  const [count, setCount] = useState(0);
   const handleIncrement = () => {
-    setCount(count + 1);
+    setCount((count) => count + 1);
   };
   const handleDecrement = () => {
-    setCount(count - 1);
+    setCount((count) => count - 1);
   };
   const handleReset = () => {
     setCount(0);
   };
-
   return (
     <>
-      <h1>Count: {count}</h1>
-      <button onClick={handleIncrement}>Increment</button>
-      <button onClick={handleDecrement}>Decrement</button>
-      <button onClick={handleReset}>Reset</button>
+      <CountDisplay count={count} />
+      <CountButton
+        handleIncrement={handleIncrement}
+        handleDecrement={handleDecrement}
+        handleReset={handleReset}
+      />
     </>
   );
 }
