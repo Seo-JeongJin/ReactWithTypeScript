@@ -1,11 +1,9 @@
-import UserInfoForm from './components/UserInfoForm';
-import './styles/global.css';
-import './styles/index.css';
+import Checkbox from './components/uncontrolled/Checkbox';
 
 export default function App() {
   return (
     <>
-      <UserInfoForm />
+      <Checkbox />
     </>
   );
 }
